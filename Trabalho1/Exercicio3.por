@@ -1,9 +1,13 @@
 programa
 { 
-	/*	
-	 * 	Membros do Grupo:
-	 * 	Paulo Vitor Lessa
-	 */
+	/*
+   * Membros do Grupo:
+   * Paulo Vitor de Oliveira dos Reis Lessa
+   * Gabriel Santiago Neves
+   * Matheus Machado de Souza Borges
+   * Caio Jose Oliveira Ferreira
+   * Luan D Almeida Cailleaux
+   */
 	  
   funcao inicio()
   {
@@ -47,7 +51,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 62; 
+ * @POSICAO-CURSOR = 216; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
