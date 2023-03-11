@@ -1,5 +1,10 @@
 programa
-{   
+{ 
+	/*	
+	 * 	Membros do Grupo:
+	 * 	Paulo Vitor Lessa
+	 */
+	  
   funcao inicio()
   {
     cadeia time [6], campeao = " ", lanterna = " "
@@ -13,13 +18,13 @@ programa
 
       para(inteiro i=0; i < 6; i++)
       {
-        escreva("Digite a pontua�ao do time ", time[i], ": ")
+        escreva("Digite a pontuaçao do time ", time[i], ": ")
         leia(pontuacao[i])
       }
 
       para(inteiro i=0; i < 6; i++)
       {
-        escreva("\nA pontua�ao do time ", time[i], " �: ", pontuacao[i], ".")
+        escreva("\nA pontuaçao do time ", time[i], " é: ", pontuacao[i], ".")
 
           se (pontuacao[i] > maior_p)
           {
@@ -33,7 +38,18 @@ programa
           }
                     
       }
-      escreva("\n\nO campe�o (primeiro lugar) foi: ", campeao, " com: ", maior_p, " pontos.", "\nO lanterna (ultimo lugar) foi: ", lanterna, " com: ", menor_p, " pontos.") 
+      escreva("\n\nO campeão (primeiro lugar) foi: ", campeao, " com: ", maior_p, " pontos.", "\nO lanterna (ultimo lugar) foi: ", lanterna, " com: ", menor_p, " pontos.") 
 
   }
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 62; 
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */

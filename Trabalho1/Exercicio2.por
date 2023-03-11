@@ -1,5 +1,11 @@
 programa
 {
+	/*
+	 * Membros do Grupo:
+	 * Paulo Vitor Lessa
+	 */
+
+	
   funcao inicio()
     {
       cadeia nome[3]
@@ -15,7 +21,7 @@ programa
           leia(quantidade[i])
           escreva("Digite o valor do produto ", i+1, ":\n")
           leia(valor[i])
-          total = total + (quantidade[i]valor[i])
+          total = total + (quantidade[i]*valor[i])
         }
 
         limpa()
@@ -30,3 +36,14 @@ programa
     }
 
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seção do arquivo guarda informações do Portugol Studio.
+ * Você pode apagá-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 532; 
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */
