@@ -1,13 +1,30 @@
 programa
 {
+	/*
+     * Membros do Grupo:
+     * Paulo Vitor de Oliveira dos Reis Lessa
+     * Gabriel Santiago Neves
+     * Matheus Machado de Souza Borges
+     * Caio Jose Oliveira Ferreira
+     * Luan D Almeida Cailleaux
+     */
 		
 	inclua biblioteca Util --> u
 	caracter opcaoMenu = ' '
 	cadeia opcaoQuarto = " "
 	cadeia nome
 	cadeia telefone
-	caracter especialidade
+	cadeia especialidade
 	logico quartos[20]
+	cadeia nomeInternacao[20]
+	cadeia telefoneInternacao[20]
+	inteiro numeroQuarto = 0
+	inteiro consultasPediatria = 0
+	inteiro consultasOutros = 0
+	inteiro internacoes = 0
+	real valorConsultaOutros = 120.0
+	real valorConsultaPediatria = 150.0
+	real valorInternacao = 500.0
 
 	
 	funcao inicio()
@@ -47,6 +64,7 @@ programa
 			caso '1':{
 				limpa()
 				lerDadosPaciente()
+				registraConsulta()
 				escreva("Consulta ambulatorial registrada!")
 				u.aguarde(2000)
 				limpa()
@@ -58,6 +76,7 @@ programa
 					listarQuartosVazios()
 					lerQuarto()
 					lerDadosPaciente()
+					registraInternacao()
 					escreva("Quarto reservado com sucesso!")
 					
 				}
@@ -69,22 +88,17 @@ programa
 				pare
 			}
 			caso '3':{
-				limpa()
-				escreva("Escolheu opcao 3")
-				u.aguarde(2000)
-				limpa()
+				listarQuartos()
 				pare
 			}
 			caso '4':{
-				limpa()
-				escreva("Escolheu opcao 4")
-				u.aguarde(2000)
+				faturamento()
 				limpa()				
 				pare
 			}
 			caso '5':{
 				limpa()
-				escreva("Escolheu 5\n")
+				escreva("SISTEMA ENCERRADO\n")
 				u.aguarde(2000)
 				limpa()
 				pare
@@ -101,7 +115,7 @@ programa
 			escreva("1-Pediatria\n")
 			escreva("2-Outras\n")
 			leia(especialidade)
-			enquanto(especialidade != '1' e especialidade != '2'){
+			enquanto(especialidade != "1" e especialidade != "2"){
 				limpa()
 				escreva("Opção inválida.\n")
 				escreva("Digite uma opção válida! ")
@@ -154,7 +168,6 @@ programa
 					escreva("\n\nDigite o número do Quarto desejado: ")
 					leia(opcaoQuarto)	
 			}
-		inteiro numeroQuarto = 0
 		se(opcaoQuarto == "1"){
 			numeroQuarto = 1
 		}
@@ -300,8 +313,52 @@ programa
 			
 		}
 		quartos[numeroQuarto-1] = verdadeiro
-		
-			
+					
+	}
+	funcao registraInternacao(){
+		nomeInternacao[numeroQuarto-1] = nome
+		telefoneInternacao[numeroQuarto-1] = telefone
+		internacoes += 1
+	}
+	funcao listarQuartos(){
+		limpa()
+		escreva("Quartos: \n\n")
+		para(inteiro i=0; i< 20; i++){
+				se(quartos[i] == falso){
+					escreva(i+1, " :" , "Vazio\n")
+				}
+				senao{
+					escreva(i+1, " :", nomeInternacao[i], " - ", telefoneInternacao[i], "\n")
+				}
+		}
+		escreva("\nDigite qualquer tecla para voltar!")
+		cadeia aux = " "
+		leia (aux)
+		limpa()			
+	}
+	funcao registraConsulta(){
+		se(especialidade == "1"){
+			consultasPediatria += 1
+		}
+		senao{
+			consultasOutros += 1
+		}
+	}
+	funcao faturamento(){
+		limpa()
+		escreva("FATURAMENTO\n")
+		escreva("---------------------------------\n")
+		escreva("CONSULTAS:   ", consultasOutros+consultasPediatria, "   TOTAL: R$ ", (consultasOutros*valorConsultaOutros)+(consultasPediatria*valorConsultaPediatria),"\n")
+		escreva("Pediatria:   ", consultasPediatria, "   Total: R$ ", consultasPediatria*valorConsultaPediatria,"\n")
+		escreva("Outros:      " , consultasOutros, "   Total: R$ ", consultasOutros*valorConsultaOutros, "\n")
+		escreva("---------------------------------\n")
+		escreva("INTERNAÇÕES: ", internacoes, "   Total: R$ ", internacoes*valorInternacao,"\n")
+		escreva("---------------------------------\n")
+		escreva("TOTAL GERAL FATURADO:   ", "R$ ", (consultasOutros*valorConsultaOutros)+(consultasPediatria*valorConsultaPediatria)+(internacoes*valorInternacao),"\n")
+		escreva("\nDigite qualquer tecla para voltar!")
+		cadeia aux = " "
+		leia (aux)
+		limpa()
 	}
 
 	
@@ -311,7 +368,7 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1586; 
+ * @POSICAO-CURSOR = 8856; 
  * @PONTOS-DE-PARADA = ;
  * @SIMBOLOS-INSPECIONADOS = ;
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
