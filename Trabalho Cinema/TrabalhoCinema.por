@@ -1,107 +1,126 @@
 programa
 {
-	inclua biblioteca Util
-	
-	inteiro linha=0, coluna=0
+	inclua biblioteca Util --> u
 	inteiro assentos[10][12]
 	
 	funcao inicio()
 	{
-		faca{
-			inicializaAssentos()
-			lerAssento()
-			se(validaSaida(linha, coluna)==falso){
+		inteiro opcao
+		
+		escreva("-----Reserva de assentos-----\n\n(1)-Reservar assentos\n(2)-Listagem de assentos\n(3)-Sair\n\nDigite a opÁ„o desejada: ")
+		leia(opcao)
+		se(opcao >= 1 e opcao <= 3){
+			se(opcao == 1){
+				u.aguarde(2000)
 				limpa()
-				escreva("\nSistema Encerrado\n\n")
+				reserva()
 			}
-			senao{
-				enquanto(verificaEstadoAssento()){
+			se(opcao == 2){
+				u.aguarde(2000)
 				limpa()
-				escreva("Assento ocupado!\n")
-				lerAssento()
+				listagem()
 			}
-				reservaAssento()
-			
-			listaAssentos()
-			escreva("Digite um n√∫mero positivo para continuar ou negativo para sair")
-			leia(linha)
+			se(opcao == 3){
+				escreva("\nSaindo.")
+				u.aguarde(2000)
+				
+			}
+		}senao{
+			escreva("\nOpÁ„o invalida: ")
+			u.aguarde(2000)
 			limpa()
-			se(linha<0){
-				escreva("\nSistema Encerrado\n\n")
-			}
+			inicio()
 		}
+		
+	}
+	funcao reserva(){
+		inteiro fileira = 0, assento = 0, opcao =0
+
+		escreva("---Reserva---\n")
+
+		escreva("\nDigite a fileira (horizontal) que deseja de 0 a 9 (cima para baixo): ")
+		leia(fileira)
+		escreva("\nDigite o assento (vertical) que deseja de 0 a 11 (esquerda para direita): ")
+		leia(assento)
+
+		se(assentos[fileira][assento] == 0){
+			assentos[fileira][assento] = 1
 			
-			
+			escreva("\nAssento reservado com sucesso!!\n")
+			para(inteiro i=0; i < 10; i++){
+				para(inteiro a=0; a < 12; a++){
+					escreva(assentos[i][a], " ")
+	
 		}
-		enquanto(validaSaida(linha, coluna))
-	}
-	funcao logico validaSaida(inteiro a, inteiro b){
-			se(a < 0 ou b < 0){
-				retorne falso
-			}
-			retorne verdadeiro
-	}
-	funcao inicializaAssentos(){
-		inteiro estado=0
-		para(inteiro i=0;i<10;i++){
-			para(inteiro j=0;j<12;j++){
-				se(assentos[i][j]==0){
-					estado=1
+				escreva("\n")
+		}
+			escreva(" ---------tela--------")
+			escreva("\n\n(1)-Fazer outra reserva\n(2)-Voltar ao menu")
+			leia(opcao)
+			escreva("\n")
+			se(opcao == 1 ou opcao == 2){
+				se(opcao == 1){
+					limpa()
+					reserva()
+				}
+				se(opcao == 2){
+					escreva("\nVoltando")
+					u.aguarde(2000)
+					limpa()
+					inicio()
 				}
 			}
-		}
-		se(estado ==0){
-			para(inteiro i=0;i<10;i++){
-			para(inteiro j=0;j<12;j++){
-				assentos[i][j]=0
-			}
-		}
-	}
-		
-	}
-	funcao lerAssento(){
-		escreva("Digite a linha e a coluna do assento: ")
-		leia(linha,coluna)
-		enquanto(linha >9 ou coluna >11){
-			limpa()
-			escreva("Linha ou coluna inv√°lidos!\n")
-			escreva("Digite a linha e a coluna do assento: ")
-			leia(linha,coluna)
-		}
-		
-		
-	}
-	funcao logico verificaEstadoAssento(){
-		se(assentos[linha][coluna]==0){
-			retorne falso
-		}
-		senao{
-			retorne verdadeiro
-		}		
-	}
-	funcao reservaAssento(){
-		assentos[linha][coluna] = 1
-		escreva("Assento reservado com sucesso!!\n")
-	}
-	funcao listaAssentos(){
-		para(inteiro i=0;i<10;i++){
-			para(inteiro j=0;j<12;j++){
-				escreva(assentos[i][j]," ")
-			}
-			escreva("\n")
-		}
-	}
-	
 
+		}senao{
+			escreva("\nAssento ocupado ou indisponivel por favor tente outro.")
+			u.aguarde(2000)
+			limpa()
+			reserva()
+			
+		}
+		
+	}
+	funcao listagem(){
+
+		inteiro l = 0, opcao = 0
+		
+		escreva("---Listagem---\n")
+	
+			para(inteiro i=0; i < 10; i++){
+				para(inteiro a=0; a < 12; a++){
+					escreva(assentos[i][a], " ")
+	
+		}
+				escreva("\n")
+		}
+			escreva(" ---------tela--------")
+			
+				escreva("\n\n(1)-Listar novamente: \n(2)-Voltar ao menu: \n(3)-Ir para reserva: ")
+				leia(opcao)
+	
+			se(opcao >= 1 e opcao <= 3){
+				se(opcao == 1){
+					u.aguarde(2000)
+					limpa()
+					listagem()
+				}
+				se(opcao == 2){
+					escreva("\nSaindo.")
+					u.aguarde(2000)
+					limpa()
+					inicio()
+				}
+				se(opcao == 3){
+					u.aguarde(2000)
+					limpa()
+					reserva()
+				}
+			}senao{
+				escreva("\nOpÁ„o invalida: ")
+				u.aguarde(2000)
+				limpa()
+				inicio()
+				}
+		
+	}
 }
-/* $$$ Portugol Studio $$$ 
- * 
- * Esta se√ß√£o do arquivo guarda informa√ß√µes do Portugol Studio.
- * Voc√™ pode apag√°-la se estiver utilizando outro editor.
- * 
- * @POSICAO-CURSOR = 576; 
- * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {linha, 5, 9, 5}-{coluna, 5, 18, 6};
- * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
- * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
- */
