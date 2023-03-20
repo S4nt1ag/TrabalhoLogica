@@ -1,5 +1,10 @@
 programa
 {
+
+	/* 
+	 *  Paulo Vitor Lessa
+	 *  Matheus Borges
+	 */
 	inclua biblioteca Util
 	
 	real saldo[4]
@@ -124,9 +129,9 @@ programa
  * Esta seção do arquivo guarda informações do Portugol Studio.
  * Você pode apagá-la se estiver utilizando outro editor.
  * 
- * @POSICAO-CURSOR = 1439; 
+ * @POSICAO-CURSOR = 59; 
  * @PONTOS-DE-PARADA = ;
- * @SIMBOLOS-INSPECIONADOS = {valor, 77, 7, 5};
+ * @SIMBOLOS-INSPECIONADOS = {valor, 82, 7, 5};
  * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
  * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
  */

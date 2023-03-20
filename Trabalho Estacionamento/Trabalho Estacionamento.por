@@ -1,5 +1,10 @@
 programa 
 {
+	/*
+	 * Gabriel Santiago Neves
+	 * Luan D Almeida 
+	 * Caio Oliveira
+	 */
     inclua biblioteca Util --> u
     
     cadeia vagas[30]
@@ -18,13 +23,13 @@ programa
 	    caracter opcao
 	    escreva("\tEstacionamento 4\t\t\n")
 	    escreva("---------------------------\n")
-	    escreva("1 - Entrada de Veículo\n")
-	    escreva("2 - Saída de veículos\n")
+	    escreva("1 - Entrada de VeÃ­culo\n")
+	    escreva("2 - SaÃ­da de veÃ­culos\n")
 	    escreva("3 - Listar vagas\n")
 	    escreva("4 - Sair do Programa\n")
 	    escreva("---------------------------\n")
 	    
-	    escreva("escolha a operação: ")
+	    escreva("escolha a operaÃ§Ã£o: ")
 	    leia(opcao)
 	    
 	    se (opcao == '1'){
@@ -69,7 +74,7 @@ programa
 		    se (opcaoVaga >=0 e opcaoVaga <= 29 ){
 		        preencherVaga(opcaoVaga)
 		    }senao {
-		        escreva("Vaga Inválida")
+		        escreva("Vaga InvÃ¡lida")
 		        u.aguarde(2000)
 		        limpa()
 		        menu()
@@ -96,7 +101,7 @@ programa
 	{
 	    cadeia placa
 	    limpa()
-	    escreva("Digite a placa do veículo: ")
+	    escreva("Digite a placa do veÃ­culo: ")
 	    leia(placa)
 	    
 	    escreva("\nvaga preenchida com sucesso")
@@ -115,7 +120,7 @@ programa
 	        escreva("[",vagas[i], "]", "\n")
 	    }
 	    escreva("--------------------------")
-	    escreva("\nPrecione qualquer botão para voltar: ")
+	    escreva("\nPrecione qualquer botÃ£o para voltar: ")
 	    escreva("\n--------------------------\n")
 	    leia(opcao)
 	    limpa()
@@ -135,7 +140,7 @@ programa
 		    se (opcaoVaga >=0 e opcaoVaga <= 29 ){
 		        saidaVaga(opcaoVaga)
 		    }senao {
-		        escreva("Vaga Inválida")
+		        escreva("Vaga InvÃ¡lida")
 		        u.aguarde(2000)
 		        saidaDeVeiculos()
 		        
@@ -160,3 +165,14 @@ programa
 	}
 
 }
+/* $$$ Portugol Studio $$$ 
+ * 
+ * Esta seÃ§Ã£o do arquivo guarda informaÃ§Ãµes do Portugol Studio.
+ * VocÃª pode apagÃ¡-la se estiver utilizando outro editor.
+ * 
+ * @POSICAO-CURSOR = 80; 
+ * @PONTOS-DE-PARADA = ;
+ * @SIMBOLOS-INSPECIONADOS = ;
+ * @FILTRO-ARVORE-TIPOS-DE-DADO = inteiro, real, logico, cadeia, caracter, vazio;
+ * @FILTRO-ARVORE-TIPOS-DE-SIMBOLO = variavel, vetor, matriz, funcao;
+ */
